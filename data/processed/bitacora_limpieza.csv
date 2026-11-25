@@ -1,0 +1,6 @@
+Paso,Antes,Después,Eliminados
+Eliminar filas duplicadas,541909,536641,5268
+Eliminar registros sin CustomerID,536641,401604,135037
+Eliminar códigos que no son productos,401604,399689,1915
+Eliminar líneas con precio 0,399689,399656,33
+Separar devoluciones (no son ventas),399656,391150,8506

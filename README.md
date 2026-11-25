@@ -19,13 +19,21 @@ Segmentación de datos con K-Means y desarrollo de un dashboard interactivo en S
 
 ```
 ├── app/
-│   └── dashboard.py                  # Dashboard interactivo (Streamlit)
+│   ├── dashboard.py                  # Punto de entrada del dashboard (menú de 2 páginas)
+│   ├── comun.py                      # Carga de datos, paleta y estilo compartidos
+│   ├── iconos.py                     # Iconos de Lucide (lucide.dev, licencia ISC)
+│   ├── favicon.svg                   # Icono de la pestaña del navegador
+│   └── paginas/
+│       ├── analisis_general.py       # Página 1: análisis general del dataset
+│       └── segmentacion.py           # Página 2: segmentación mediante K-Means
 ├── data/
 │   ├── raw/online_retail.csv.gz      # Dataset original (convertido de .xlsx a CSV, sin cambios)
 │   └── processed/
 │       ├── clientes_segmentados.csv  # Un registro por cliente con variables RFM y su clúster
 │       ├── resumen_segmentos.csv     # Tabla comparativa de los segmentos
-│       └── evaluacion_k.csv          # Métricas para K = 2 … 10
+│       ├── evaluacion_k.csv          # Métricas para K = 2 … 10
+│       ├── ventas_limpias.csv.gz     # Líneas de venta limpias (para la página 1 del dashboard)
+│       └── bitacora_limpieza.csv     # Registros antes y después de cada paso de limpieza
 ├── docs/
 │   ├── Documentacion_Proyecto_KMeans.pdf  # Documento del proyecto (Parte 7)
 │   └── capturas/                     # Capturas del dashboard
@@ -191,6 +199,19 @@ fronteras entre segmentos; solo se usaron variables RFM; el modelo describe, per
 
 `streamlit run app/dashboard.py`
 
+El dashboard tiene **dos páginas**, que se eligen en el menú de la barra lateral. Cada una tiene sus propios filtros, y todas sus visualizaciones se calculan con los datos y archivos generados en Python.
+
+**Página 1. Análisis general** (`app/paginas/analisis_general.py`): indicadores, estadísticas y visualizaciones generales del dataset limpio.
+
+| Elemento | Implementación |
+|---|---|
+| Filtros (3) | Periodo (meses), región y país |
+| 5 KPI | Ingresos, facturas, clientes, valor promedio por factura y productos distintos |
+| Gráficas | Ingresos y clientes por mes, top 10 de países y de productos, facturas por día y hora, y distribución del valor de las facturas |
+| Tablas | Estadísticas descriptivas de las ventas y bitácora de limpieza (con gráfica de registros por paso) |
+
+**Página 2. Segmentación mediante K-Means** (`app/paginas/segmentacion.py`): agrupamientos, características de los clústeres, comparaciones y resultados del modelo.
+
 | Requisito | Implementación |
 |---|---|
 | Título | "Segmentación de clientes de una tienda en línea con K-Means" |
@@ -200,6 +221,7 @@ fronteras entre segmentos; solo se usaron variables RFM; el modelo describe, per
 | 2+ gráficas comparativas | Boxplot por variable, % clientes vs % ingresos y mapa de calor del perfil |
 | Tabla de estadísticas | Media, mediana, desviación, mínimo y máximo por clúster, con variables seleccionables |
 | Filtros (5) | Segmento, región, país, rango de gasto y rango de recencia |
+| Resultados del modelo | Método del codo, silueta, centroides en unidades originales y configuración elegida |
 | Descripción de los grupos | Una tarjeta por segmento con sus métricas |
 | Hallazgos y recomendaciones | Sección con cifras calculadas a partir de los datos |
-| Extra | Descarga en CSV de los clientes filtrados y detalle de la selección de K |
+| Extra | Descarga en CSV de los clientes filtrados |
