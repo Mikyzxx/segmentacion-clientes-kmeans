@@ -1,0 +1,17 @@
+# Entorno virtual y cachés
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Archivo original pesado (se regenera con scripts/descargar_datos.py)
+data/raw/*.xlsx
+data/raw/*.zip
+
+# Configuración local de herramientas
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
