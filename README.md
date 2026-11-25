@@ -35,6 +35,7 @@ Segmentación de datos con K-Means y desarrollo de un dashboard interactivo en S
 │       ├── ventas_limpias.csv.gz     # Líneas de venta limpias (para la página 1 del dashboard)
 │       └── bitacora_limpieza.csv     # Registros antes y después de cada paso de limpieza
 ├── docs/
+│   ├── JuliaExamen3.pdf              # Documento del proyecto (Parte 7)
 │   └── capturas/                     # Capturas del dashboard
 ├── models/kmeans_rfm.joblib          # Scaler + modelo K-Means entrenado
 ├── notebooks/
