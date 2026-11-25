@@ -26,6 +26,9 @@ Segmentación de datos con K-Means y desarrollo de un dashboard interactivo en S
 │       ├── clientes_segmentados.csv  # Un registro por cliente con variables RFM y su clúster
 │       ├── resumen_segmentos.csv     # Tabla comparativa de los segmentos
 │       └── evaluacion_k.csv          # Métricas para K = 2 … 10
+├── docs/
+│   ├── Documentacion_Proyecto_KMeans.pdf  # Documento del proyecto (Parte 7)
+│   └── capturas/                     # Capturas del dashboard
 ├── models/kmeans_rfm.joblib          # Scaler + modelo K-Means entrenado
 ├── notebooks/
 │   └── proyecto_kmeans_clientes.ipynb  # Desarrollo completo (Partes 1 a 5), ya ejecutado
